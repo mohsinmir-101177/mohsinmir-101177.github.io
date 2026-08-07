@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohsin Javid Mir | Portfolio</title>
+<style>
+  :root{
+    --bg:#0a0d0f;
+    --text:#c9d4cd;
+    --text-dim:#5f6b64;
+    --green:#5ee6a0;
+    --green-dim:#2e7a56;
+    --amber:#e6c15e;
+    --rule:#1b2320;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'JetBrains Mono','Fira Code',Menlo,Consolas,'Courier New',monospace;
+    font-size:15px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{
+    max-width:760px;
+    margin:0 auto;
+    padding:64px 24px 90px;
+  }
+  .prompt-sym{color:var(--green);font-weight:700;}
+  .hero{
+    margin-bottom:46px;
+  }
+  .hero .glyph{
+    color:var(--green);
+    font-size:22px;
+    margin-bottom:10px;
+  }
+  .hero h1{
+    font-size:22px;
+    font-weight:700;
+    color:var(--text);
+    margin:0 0 6px;
+  }
+  .hero .role{
+    color:var(--text-dim);
+    font-size:14px;
+  }
+  .role .sep{color:var(--green-dim);margin:0 8px;}
+
+  section{
+    margin-bottom:40px;
+  }
+  .cmd{
+    color:var(--text-dim);
+    font-size:13px;
+    margin-bottom:10px;
+    letter-spacing:.02em;
+  }
+  .cmd .prompt-sym{margin-right:6px;}
+  .cmd .cmdtext{color:var(--amber);}
+
+  .kv{margin:2px 0;}
+  .kv .k{color:var(--text-dim);}
+  .kv .v, .kv a{color:var(--green);text-decoration:none;}
+  .kv a:hover{text-decoration:underline;}
+
+  .skill-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:4px 18px;
+  }
+  .skill-grid span{color:var(--text);}
+
+  .proj{margin-bottom:26px;}
+  .proj:last-child{margin-bottom:0;}
+  .proj-title{
+    color:var(--green);
+    font-weight:700;
+    font-size:15px;
+  }
+  .proj-meta{
+    color:var(--text-dim);
+    font-size:12.5px;
+    margin-left:8px;
+  }
+  .proj ul{
+    margin:8px 0 0;
+    padding-left:20px;
+  }
+  .proj li{
+    margin-bottom:4px;
+    color:var(--text);
+  }
+  .proj li::marker{color:var(--text-dim);}
+
+  .edu-degree{color:var(--green);font-weight:700;}
+  .edu-school{color:var(--text-dim);}
+
+  ul.plain{margin:6px 0 0;padding-left:20px;}
+  ul.plain li{margin-bottom:4px;}
+  ul.plain li::marker{color:var(--text-dim);}
+
+  hr{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:0 0 40px;
+  }
+
+  footer{
+    color:var(--text-dim);
+    font-size:13px;
+    margin-top:10px;
+  }
+  footer .prompt-sym{margin-right:6px;}
+  footer .heart{color:#e26b6b;}
+
+  @media (max-width:520px){
+    .page{padding:44px 18px 70px;}
+    .skill-grid{grid-template-columns:repeat(2,1fr);}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <div class="glyph">$</div>
+    <h1>Mohsin Javid Mir</h1>
+    <div class="role">DevOps Engineer<span class="sep">•</span>Cloud Computing<span class="sep">•</span>CI/CD Automation</div>
+  </div>
+
+  <section>
+    <div class="cmd"><span class="prompt-sym">$</span><span class="cmdtext">pwd</span></div>
+    <div class="kv"><span class="v">/Kashmir</span> <span class="k">•</span> <span class="v">/Pune</span></div>
+  </section>
+
+  <section>
+    <div class="cmd"><span class="prompt-sym">$</span><span class="cmdtext">uptime</span></div>
+    <div class="kv">self-teaching since 2025, no downtime yet</div>
+  </section>
+
+  <section>
+    <div class="cmd"><span class="prompt-sym">$</span><span class="cmdtext">printenv CONTACT</span></div>
+    <div class="kv"><span class="k">Email=</span><a href="mailto:mohsin.mohsinmir176@gmail.com">mohsin.mohsinmir176@gmail.com</a></div>
+    <div class="kv"><span class="k">Phone=</span><span class="v">+91 7780844577</span></div>
+    <div class="kv"><span class="k">GitHub=</span><a href="https://github.com/mohsinmir-101177" target="_blank" rel="noopener">github.com/mohsinmir-101177</a></div>
+    <div class="kv"><span class="k">LinkedIn=</span><a href="https://linkedin.com/in/mohsinmir-cloud" target="_blank" rel="noopener">linkedin.com/in/mohsinmir-cloud</a></div>
+  </section>
+
+  <section>
+    <div class="cmd"><span class="prompt-sym">$</span><span class="cmdtext">cat skills/all.txt</span></div>
+    <div class="skill-grid">
+      <span>AWS EC2</span><span>AWS S3</span><span>AWS VPC</span>
+      <span>AWS IAM</span><span>CloudWatch</span><span>Auto Scaling</span>
+      <span>Docker</span><span>Docker Compose</span><span>Kubernetes</span>
+      <span>Jenkins</span><span>Jenkinsfile</span><span>GitHub Actions</span>
+      <span>Git</span><span>GitHub</span><span>Bash</span>
+      <span>Python</span><span>Flask</span><span>Nginx</span>
+      <span>PostgreSQL</span><span>Prometheus</span><span>Grafana</span>
+      <span>Linux</span><span>Ubuntu</span><span>WSL</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="cmd"><span class="prompt-sym">$</span><span class="cmdtext">history | grep projects</span></div>
+
+    <div class="proj">
+      <span class="proj-title">3-Tier Expense Tracker Application</span>
+      <span class="proj-meta">Personal Project — github.com/mohsinmir-101177</span>
+      <ul>
+        <li>Designed and deployed a 3-tier app: Nginx frontend, Flask (Python) backend, PostgreSQL database — fully containerized with Docker Compose.</li>
+        <li>Configured a Jenkins CI/CD pipeline for automated build, test, and deployment, integrated with GitHub.</li>
+        <li>Implemented and tested blue-green, rolling, and canary deployment strategies.</li>
+        <li>Diagnosed and resolved real container networking, environment variable, and service-dependency issues.</li>
+      </ul>
+    </div>
+
+    <div class="proj">
+      <span class="proj-title">System Monitoring Dashboard</span>
+      <span class="proj-meta">Personal Project</span>
+      <ul>
+        <li>Developed a monitoring dashboard using Plotly for real-time CPU, memory, and disk metrics.</li>
+        <li>Configured AWS CloudWatch alarms for proactive alerting.</li>
+        <li>Applied least-privilege IAM roles and policies.</li>
+      </ul>
+    </div>
+
+    <div class="proj">
+      <span class="proj-title">Containerized Online Shop Deployment</span>
+      <span class="proj-meta">Personal Project</span>
+      <ul>
+        <li>Containerized and deployed a shop app using Nginx and Docker Compose.</li>
+        <li>Switched to distroless base images, shrinking image size and attack surface.</li>
+        <li>Set up an automated CI/CD pipeline to standardize build-and-deploy.</li>
+      </ul>
+    </div>
+
+    <div class="proj">
+      <span class="proj-title">Academic Projects</span>
+      <span class="proj-meta">BCA Coursework</span>
+      <ul>
+        <li>Gym management app built with Maven and a working relational database.</li>
+        <li>Notepad+ app integrated with ChatGPT and Blackbox APIs.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="cmd"><span class="prompt-sym">$</span><span class="cmdtext">cat education.txt</span></div>
+    <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
+    <div class="edu-school">Abeda Inamdar Senior College, Pune, Maharashtra — 2021 – 2024</div>
+  </section>
+
+  <section>
+    <div class="cmd"><span class="prompt-sym">$</span><span class="cmdtext">cat certifications.log</span></div>
+    <ul class="plain">
+      <li>DevOps and Cloud Computing Certification — Physics Wallah</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="cmd"><span class="prompt-sym">$</span><span class="cmdtext">cat training.log</span></div>
+    <ul class="plain">
+      <li>Linux fundamentals & networking</li>
+      <li>Git / GitHub version control</li>
+      <li>CI/CD with Jenkins — writing and debugging real Jenkinsfiles</li>
+      <li>Docker & Docker Compose</li>
+      <li>Deployment strategy fundamentals: blue-green, rolling, canary</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="cmd"><span class="prompt-sym">$</span><span class="cmdtext">printenv LANG</span></div>
+    <div class="kv">English <span class="k">•</span> Hindi <span class="k">•</span> Kashmiri</div>
+  </section>
+
+  <hr>
+
+  <footer>
+    <span class="prompt-sym">$</span>exit<br>
+    Built with <span class="heart">♥</span> by Mohsin Mir — self-taught, shipped for real
+  </footer>
+
+</div>
+</body>
+</html>
