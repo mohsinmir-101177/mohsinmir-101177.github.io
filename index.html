@@ -3,247 +3,537 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mohsin Javid Mir | Portfolio</title>
+<title>Mohsin Javid Mir | DevOps & Cloud Engineer</title>
+<meta name="description" content="Mohsin Javid Mir — self-taught DevOps & Cloud Computing Engineer building containerized, automated delivery pipelines.">
 <style>
   :root{
-    --bg:#0a0d0f;
-    --text:#c9d4cd;
-    --text-dim:#5f6b64;
-    --green:#5ee6a0;
-    --green-dim:#2e7a56;
-    --amber:#e6c15e;
-    --rule:#1b2320;
+    --bg:#0a0c10;
+    --bg-elev:#10131a;
+    --line:#1c212b;
+    --text:#e6e9ef;
+    --dim:#7a8496;
+    --cyan:#6ee7ff;
+    --violet:#a78bfa;
+    --green:#6ee7b0;
+    --amber:#ffcf7a;
   }
   *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
   body{
-    background:var(--bg);
+    margin:0;
+    background:
+      radial-gradient(1200px 500px at 15% -10%, rgba(110,231,255,0.08), transparent 55%),
+      radial-gradient(900px 500px at 85% 10%, rgba(167,139,250,0.07), transparent 55%),
+      var(--bg);
     color:var(--text);
-    font-family:'JetBrains Mono','Fira Code',Menlo,Consolas,'Courier New',monospace;
-    font-size:15px;
-    line-height:1.7;
+    font-family:'Inter',ui-sans-serif,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
     -webkit-font-smoothing:antialiased;
   }
-  .page{
-    max-width:760px;
-    margin:0 auto;
-    padding:64px 24px 90px;
+  .mono{font-family:'JetBrains Mono','Fira Code',Menlo,Consolas,monospace;}
+  a{color:inherit;}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 32px;
+    background:rgba(10,12,16,0.7);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
   }
-  .prompt-sym{color:var(--green);font-weight:700;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:14px;}
+  .brand .badge{
+    width:28px;height:28px;border-radius:8px;
+    background:linear-gradient(135deg,var(--cyan),var(--violet));
+    color:#0a0c10;display:flex;align-items:center;justify-content:center;
+    font-size:11px;font-weight:800;
+  }
+  .navlinks{display:flex;gap:26px;font-size:13px;color:var(--dim);}
+  .navlinks a{text-decoration:none;transition:color .2s;}
+  .navlinks a:hover{color:var(--cyan);}
+  .navcta{
+    font-size:12px;color:var(--dim);
+    display:flex;align-items:center;gap:8px;
+  }
+  .navcta .pulse{
+    width:7px;height:7px;border-radius:50%;background:var(--green);
+    box-shadow:0 0 0 0 rgba(110,231,176,.6);
+    animation:pulse 2s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(110,231,176,.5);}
+    70%{box-shadow:0 0 0 8px rgba(110,231,176,0);}
+    100%{box-shadow:0 0 0 0 rgba(110,231,176,0);}
+  }
+  .navcta a{color:var(--cyan);text-decoration:none;}
+  @media (max-width:820px){.navlinks{display:none;}}
+
+  /* HERO */
   .hero{
-    margin-bottom:46px;
+    max-width:1100px;margin:0 auto;
+    padding:70px 32px 40px;
   }
-  .hero .glyph{
-    color:var(--green);
-    font-size:22px;
-    margin-bottom:10px;
+  .hero-cmd{
+    color:var(--dim);font-size:13px;margin-bottom:26px;
   }
-  .hero h1{
-    font-size:22px;
-    font-weight:700;
-    color:var(--text);
-    margin:0 0 6px;
+  .hero-cmd .prompt{color:var(--green);}
+  .hero-cmd .flag{color:var(--amber);}
+  .kicker{
+    font-size:13px;color:var(--dim);margin-bottom:14px;
+    display:flex;align-items:center;gap:10px;flex-wrap:wrap;
   }
-  .hero .role{
-    color:var(--text-dim);
-    font-size:14px;
+  .kicker .sep{color:var(--cyan);}
+  h1.name{
+    font-size:clamp(38px,7vw,72px);
+    line-height:1.02;
+    margin:0 0 18px;
+    font-weight:800;
+    letter-spacing:-0.02em;
+    background:linear-gradient(120deg,#fff, #cfe9ff 40%, var(--cyan));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
   }
-  .role .sep{color:var(--green-dim);margin:0 8px;}
+  .lede{
+    max-width:640px;
+    font-size:17px;color:#b7bfcc;line-height:1.65;margin-bottom:30px;
+  }
+  .hero-ctas{display:flex;gap:14px;margin-bottom:46px;flex-wrap:wrap;}
+  .btn{
+    padding:11px 20px;border-radius:8px;font-size:13.5px;font-weight:600;
+    text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+    transition:transform .15s, border-color .15s;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:linear-gradient(120deg,var(--cyan),var(--violet));color:#0a0c10;}
+  .btn-ghost{border:1px solid var(--line);color:var(--text);}
+  .btn-ghost:hover{border-color:var(--cyan);}
 
-  section{
-    margin-bottom:40px;
+  .status-strip{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    border:1px solid var(--line);border-radius:12px;overflow:hidden;
+    background:var(--bg-elev);
+    margin-bottom:24px;
   }
-  .cmd{
-    color:var(--text-dim);
-    font-size:13px;
-    margin-bottom:10px;
-    letter-spacing:.02em;
-  }
-  .cmd .prompt-sym{margin-right:6px;}
-  .cmd .cmdtext{color:var(--amber);}
+  .status-cell{padding:16px 18px;border-right:1px solid var(--line);}
+  .status-cell:last-child{border-right:none;}
+  .status-cell .k{font-size:10.5px;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;}
+  .status-cell .v{font-size:13px;}
+  @media (max-width:700px){.status-strip{grid-template-columns:repeat(2,1fr);}}
 
-  .kv{margin:2px 0;}
-  .kv .k{color:var(--text-dim);}
-  .kv .v, .kv a{color:var(--green);text-decoration:none;}
-  .kv a:hover{text-decoration:underline;}
+  .git-snip{
+    font-size:12.5px;color:var(--dim);
+    display:flex;gap:14px;flex-wrap:wrap;align-items:center;
+  }
+  .git-snip .ok{color:var(--green);}
+  .git-snip .tag{color:var(--cyan);}
 
-  .skill-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:4px 18px;
+  .skill-marquee{
+    margin-top:50px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:16px 0;overflow:hidden;white-space:nowrap;position:relative;
   }
-  .skill-grid span{color:var(--text);}
+  .skill-marquee .track{
+    display:inline-block;
+    animation:scroll-left 38s linear infinite;
+    font-size:13px;color:var(--dim);
+  }
+  .skill-marquee .track span{margin:0 18px;}
+  .skill-marquee .track span.hl{color:var(--cyan);}
+  @keyframes scroll-left{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
 
-  .proj{margin-bottom:26px;}
-  .proj:last-child{margin-bottom:0;}
-  .proj-title{
-    color:var(--green);
-    font-weight:700;
-    font-size:15px;
+  /* SECTIONS */
+  section{max-width:1100px;margin:0 auto;padding:90px 32px;}
+  .sec-tag{
+    font-size:12px;color:var(--cyan);letter-spacing:.1em;margin-bottom:14px;
   }
-  .proj-meta{
-    color:var(--text-dim);
-    font-size:12.5px;
-    margin-left:8px;
+  .sec-title{
+    font-size:clamp(24px,4vw,36px);font-weight:800;letter-spacing:-.01em;margin:0 0 20px;
   }
-  .proj ul{
-    margin:8px 0 0;
-    padding-left:20px;
-  }
-  .proj li{
-    margin-bottom:4px;
-    color:var(--text);
-  }
-  .proj li::marker{color:var(--text-dim);}
+  .sec-lede{color:var(--dim);max-width:620px;line-height:1.6;margin-bottom:40px;font-size:15px;}
 
-  .edu-degree{color:var(--green);font-weight:700;}
-  .edu-school{color:var(--text-dim);}
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
 
-  ul.plain{margin:6px 0 0;padding-left:20px;}
-  ul.plain li{margin-bottom:4px;}
-  ul.plain li::marker{color:var(--text-dim);}
-
-  hr{
-    border:none;
-    border-top:1px solid var(--rule);
-    margin:0 0 40px;
+  .principles{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .principle{
+    border:1px solid var(--line);border-radius:12px;padding:22px;background:var(--bg-elev);
   }
+  .principle .num{color:var(--dim);font-size:12px;margin-bottom:10px;}
+  .principle h3{margin:0 0 8px;font-size:15px;}
+  .principle p{margin:0;color:var(--dim);font-size:13.5px;line-height:1.55;}
+  @media (max-width:760px){.principles{grid-template-columns:1fr;}}
+
+  /* PROJECTS */
+  .proj-card{
+    border:1px solid var(--line);border-radius:14px;padding:26px 28px;
+    background:var(--bg-elev);margin-bottom:18px;
+  }
+  .proj-top{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:10px;}
+  .proj-name{font-size:17px;font-weight:700;}
+  .proj-tag{font-size:11.5px;color:var(--dim);}
+  .proj-card ul{margin:10px 0 12px;padding-left:20px;color:#b7bfcc;font-size:14px;line-height:1.65;}
+  .chip-row{display:flex;gap:8px;flex-wrap:wrap;}
+  .chip{
+    font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid var(--line);color:var(--dim);
+  }
+
+  /* STATS */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:10px;}
+  .stat{
+    border:1px solid var(--line);border-radius:12px;padding:22px 18px;background:var(--bg-elev);text-align:center;
+  }
+  .stat .num{font-size:30px;font-weight:800;color:var(--cyan);margin-bottom:4px;}
+  .stat .label{font-size:12px;color:var(--dim);}
+  @media (max-width:760px){.stats{grid-template-columns:repeat(2,1fr);}}
+
+  /* STACK YAML */
+  .yaml-block{
+    background:#080a0d;border:1px solid var(--line);border-radius:12px;
+    padding:22px 24px;font-size:13px;line-height:1.9;overflow-x:auto;color:#9fb0c3;
+  }
+  .yaml-block .k{color:var(--violet);}
+  .yaml-block .v{color:var(--cyan);}
+  .yaml-block .c{color:var(--dim);}
+
+  .stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px;}
+  .stack-card{border:1px solid var(--line);border-radius:12px;padding:18px;background:var(--bg-elev);}
+  .stack-card .tag{font-size:11px;color:var(--amber);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em;}
+  .stack-card .title{font-weight:700;font-size:14px;margin-bottom:6px;}
+  .stack-card .desc{font-size:12.5px;color:var(--dim);}
+  @media (max-width:760px){.stack-grid{grid-template-columns:1fr;}}
+
+  /* CREDENTIALS */
+  .cred-row{display:flex;flex-direction:column;gap:12px;}
+  .cred{
+    display:flex;justify-content:space-between;align-items:center;
+    border:1px solid var(--line);border-radius:10px;padding:16px 20px;background:var(--bg-elev);
+    flex-wrap:wrap;gap:8px;
+  }
+  .cred .cred-name{font-weight:700;font-size:14px;}
+  .cred .cred-org{color:var(--dim);font-size:12px;}
+
+  .learning-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;}
+  .learning-chip{
+    font-size:12.5px;padding:8px 14px;border-radius:8px;
+    border:1px dashed var(--line);color:var(--dim);
+  }
+
+  /* EDUCATION */
+  .edu-card{border:1px solid var(--line);border-radius:12px;padding:24px;background:var(--bg-elev);}
+  .edu-card .deg{color:var(--cyan);font-weight:700;font-size:16px;margin-bottom:4px;}
+  .edu-card .school{color:var(--dim);font-size:13px;}
+
+  /* CONTACT */
+  .contact-box{
+    border:1px solid var(--line);border-radius:16px;padding:48px 40px;background:var(--bg-elev);
+    text-align:center;
+  }
+  .contact-box h2{font-size:clamp(24px,4vw,34px);margin:0 0 14px;}
+  .contact-box p{color:var(--dim);max-width:520px;margin:0 auto 26px;font-size:15px;line-height:1.6;}
+  .copy-line{
+    margin-top:22px;font-size:12.5px;color:var(--dim);cursor:pointer;
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .copy-line:hover{color:var(--cyan);}
 
   footer{
-    color:var(--text-dim);
-    font-size:13px;
-    margin-top:10px;
+    border-top:1px solid var(--line);padding:30px 32px;
+    display:flex;justify-content:space-between;align-items:center;
+    max-width:1100px;margin:0 auto;color:var(--dim);font-size:12.5px;flex-wrap:wrap;gap:10px;
   }
-  footer .prompt-sym{margin-right:6px;}
-  footer .heart{color:#e26b6b;}
-
-  @media (max-width:520px){
-    .page{padding:44px 18px 70px;}
-    .skill-grid{grid-template-columns:repeat(2,1fr);}
-  }
+  footer .foot-links{display:flex;gap:18px;}
+  footer a{text-decoration:none;}
+  footer a:hover{color:var(--cyan);}
 </style>
 </head>
 <body>
-<div class="page">
 
-  <div class="hero">
-    <div class="glyph">$</div>
-    <h1>Mohsin Javid Mir</h1>
-    <div class="role">DevOps Engineer<span class="sep">•</span>Cloud Computing<span class="sep">•</span>CI/CD Automation</div>
+<nav>
+  <div class="brand"><span class="badge">MM</span> Mohsin Javid Mir</div>
+  <div class="navlinks">
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#stack">Stack</a>
+    <a href="#proof">Proof</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="navcta"><span class="pulse"></span> open to opportunities · <a href="#contact">Let's talk</a></div>
+</nav>
+
+<div class="hero" id="hero">
+  <div class="hero-cmd mono"><span class="prompt">mohsin@devops</span>:~$ deploy <span class="flag">--env</span> portfolio <span class="flag">--mode</span> self-taught</div>
+
+  <div class="kicker mono">DevOps & Cloud Engineer <span class="sep">·</span> Pune, IN <span class="sep">·</span> entry-level, self-taught</div>
+  <h1 class="name">MOHSIN JAVID MIR</h1>
+  <p class="lede">I turn manual, error-prone deployments into containerized, automated pipelines — and I can explain exactly how every part of them works, because I built and broke them myself first.</p>
+
+  <div class="hero-ctas">
+    <a class="btn btn-primary" href="#contact">Let's connect</a>
+    <a class="btn btn-ghost" href="#work">View the work</a>
   </div>
 
-  <section>
-    <div class="cmd"><span class="prompt-sym">$</span><span class="cmdtext">pwd</span></div>
-    <div class="kv"><span class="v">/Kashmir</span> <span class="k">•</span> <span class="v">/Pune</span></div>
-  </section>
+  <div class="status-strip mono reveal" id="statusStrip">
+    <div class="status-cell"><div class="k">status</div><div class="v">open to opportunities</div></div>
+    <div class="status-cell"><div class="k">base</div><div class="v">Pune, Maharashtra, IN</div></div>
+    <div class="status-cell"><div class="k">tz</div><div class="v">IST · UTC+05:30</div></div>
+    <div class="status-cell"><div class="k">since</div><div class="v">2025 · self-taught</div></div>
+  </div>
 
-  <section>
-    <div class="cmd"><span class="prompt-sym">$</span><span class="cmdtext">uptime</span></div>
-    <div class="kv">self-teaching since 2025, no downtime yet</div>
-  </section>
+  <div class="git-snip mono">
+    <span>main</span>
+    <span>checkout -b feat/expense-tracker</span>
+    <span>pipeline.yml</span>
+    <span class="ok">checks ✓</span>
+    <span class="tag">merge → main</span>
+    <span>v1.0 · deployed</span>
+  </div>
 
-  <section>
-    <div class="cmd"><span class="prompt-sym">$</span><span class="cmdtext">printenv CONTACT</span></div>
-    <div class="kv"><span class="k">Email=</span><a href="mailto:mohsin.mohsinmir176@gmail.com">mohsin.mohsinmir176@gmail.com</a></div>
-    <div class="kv"><span class="k">Phone=</span><span class="v">+91 7780844577</span></div>
-    <div class="kv"><span class="k">GitHub=</span><a href="https://github.com/mohsinmir-101177" target="_blank" rel="noopener">github.com/mohsinmir-101177</a></div>
-    <div class="kv"><span class="k">LinkedIn=</span><a href="https://linkedin.com/in/mohsinmir-cloud" target="_blank" rel="noopener">linkedin.com/in/mohsinmir-cloud</a></div>
-  </section>
-
-  <section>
-    <div class="cmd"><span class="prompt-sym">$</span><span class="cmdtext">cat skills/all.txt</span></div>
-    <div class="skill-grid">
-      <span>AWS EC2</span><span>AWS S3</span><span>AWS VPC</span>
-      <span>AWS IAM</span><span>CloudWatch</span><span>Auto Scaling</span>
-      <span>Docker</span><span>Docker Compose</span><span>Kubernetes</span>
-      <span>Jenkins</span><span>Jenkinsfile</span><span>GitHub Actions</span>
-      <span>Git</span><span>GitHub</span><span>Bash</span>
-      <span>Python</span><span>Flask</span><span>Nginx</span>
-      <span>PostgreSQL</span><span>Prometheus</span><span>Grafana</span>
-      <span>Linux</span><span>Ubuntu</span><span>WSL</span>
-    </div>
-  </section>
-
-  <section>
-    <div class="cmd"><span class="prompt-sym">$</span><span class="cmdtext">history | grep projects</span></div>
-
-    <div class="proj">
-      <span class="proj-title">3-Tier Expense Tracker Application</span>
-      <span class="proj-meta">Personal Project — github.com/mohsinmir-101177</span>
-      <ul>
-        <li>Designed and deployed a 3-tier app: Nginx frontend, Flask (Python) backend, PostgreSQL database — fully containerized with Docker Compose.</li>
-        <li>Configured a Jenkins CI/CD pipeline for automated build, test, and deployment, integrated with GitHub.</li>
-        <li>Implemented and tested blue-green, rolling, and canary deployment strategies.</li>
-        <li>Diagnosed and resolved real container networking, environment variable, and service-dependency issues.</li>
-      </ul>
-    </div>
-
-    <div class="proj">
-      <span class="proj-title">System Monitoring Dashboard</span>
-      <span class="proj-meta">Personal Project</span>
-      <ul>
-        <li>Developed a monitoring dashboard using Plotly for real-time CPU, memory, and disk metrics.</li>
-        <li>Configured AWS CloudWatch alarms for proactive alerting.</li>
-        <li>Applied least-privilege IAM roles and policies.</li>
-      </ul>
-    </div>
-
-    <div class="proj">
-      <span class="proj-title">Containerized Online Shop Deployment</span>
-      <span class="proj-meta">Personal Project</span>
-      <ul>
-        <li>Containerized and deployed a shop app using Nginx and Docker Compose.</li>
-        <li>Switched to distroless base images, shrinking image size and attack surface.</li>
-        <li>Set up an automated CI/CD pipeline to standardize build-and-deploy.</li>
-      </ul>
-    </div>
-
-    <div class="proj">
-      <span class="proj-title">Academic Projects</span>
-      <span class="proj-meta">BCA Coursework</span>
-      <ul>
-        <li>Gym management app built with Maven and a working relational database.</li>
-        <li>Notepad+ app integrated with ChatGPT and Blackbox APIs.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section>
-    <div class="cmd"><span class="prompt-sym">$</span><span class="cmdtext">cat education.txt</span></div>
-    <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
-    <div class="edu-school">Abeda Inamdar Senior College, Pune, Maharashtra — 2021 – 2024</div>
-  </section>
-
-  <section>
-    <div class="cmd"><span class="prompt-sym">$</span><span class="cmdtext">cat certifications.log</span></div>
-    <ul class="plain">
-      <li>DevOps and Cloud Computing Certification — Physics Wallah</li>
-    </ul>
-  </section>
-
-  <section>
-    <div class="cmd"><span class="prompt-sym">$</span><span class="cmdtext">cat training.log</span></div>
-    <ul class="plain">
-      <li>Linux fundamentals & networking</li>
-      <li>Git / GitHub version control</li>
-      <li>CI/CD with Jenkins — writing and debugging real Jenkinsfiles</li>
-      <li>Docker & Docker Compose</li>
-      <li>Deployment strategy fundamentals: blue-green, rolling, canary</li>
-    </ul>
-  </section>
-
-  <section>
-    <div class="cmd"><span class="prompt-sym">$</span><span class="cmdtext">printenv LANG</span></div>
-    <div class="kv">English <span class="k">•</span> Hindi <span class="k">•</span> Kashmiri</div>
-  </section>
-
-  <hr>
-
-  <footer>
-    <span class="prompt-sym">$</span>exit<br>
-    Built with <span class="heart">♥</span> by Mohsin Mir — self-taught, shipped for real
-  </footer>
-
+  <div class="skill-marquee">
+    <div class="track mono" id="marqueeTrack"></div>
+  </div>
 </div>
+
+<section id="about">
+  <div class="sec-tag mono">01 — whoami</div>
+  <h2 class="sec-title reveal">I don't just study DevOps. I break things and fix them until I understand why.</h2>
+  <p class="sec-lede reveal">No bootcamp, no internship — a self-directed path through Linux, Docker, Jenkins, and AWS, tested against real container-networking failures, broken Jenkinsfiles, and misconfigured pipelines until they actually worked.</p>
+
+  <div class="principles">
+    <div class="principle reveal">
+      <div class="num mono">01</div>
+      <h3>Build it end-to-end</h3>
+      <p>Frontend to database to pipeline — I don't stop at "it runs on my machine."</p>
+    </div>
+    <div class="principle reveal">
+      <div class="num mono">02</div>
+      <h3>Automate the repeat work</h3>
+      <p>Manual deploy steps become Jenkinsfiles and Compose configs, not tribal knowledge.</p>
+    </div>
+    <div class="principle reveal">
+      <div class="num mono">03</div>
+      <h3>Debug it myself first</h3>
+      <p>Every project here broke at least once. I fixed the networking, the env vars, the dependency order — myself.</p>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="sec-tag mono">02 — cat projects.log</div>
+  <h2 class="sec-title reveal">Shipped, not just studied.</h2>
+  <p class="sec-lede reveal">Personal projects built to be actually deployed and broken, not just tutorial follow-alongs.</p>
+
+  <div class="proj-card reveal">
+    <div class="proj-top">
+      <span class="proj-name">3-Tier Expense Tracker Application</span>
+      <span class="proj-tag mono">Personal Project · github.com/mohsinmir-101177</span>
+    </div>
+    <ul>
+      <li>Designed and deployed a 3-tier app: Nginx frontend, Flask (Python) backend, PostgreSQL database — fully containerized with Docker Compose.</li>
+      <li>Configured a Jenkins CI/CD pipeline for automated build, test, and deployment, integrated with GitHub.</li>
+      <li>Implemented and tested blue-green, rolling, and canary deployment strategies.</li>
+      <li>Diagnosed and resolved real container networking, environment variable, and service-dependency issues.</li>
+    </ul>
+    <div class="chip-row">
+      <span class="chip">Docker Compose</span><span class="chip">Jenkins</span><span class="chip">Flask</span><span class="chip">PostgreSQL</span><span class="chip">Nginx</span>
+    </div>
+  </div>
+
+  <div class="proj-card reveal">
+    <div class="proj-top">
+      <span class="proj-name">System Monitoring Dashboard</span>
+      <span class="proj-tag mono">Personal Project</span>
+    </div>
+    <ul>
+      <li>Developed a monitoring dashboard using Plotly for real-time CPU, memory, and disk metrics.</li>
+      <li>Configured AWS CloudWatch alarms for proactive alerting.</li>
+      <li>Applied least-privilege IAM roles and policies.</li>
+    </ul>
+    <div class="chip-row">
+      <span class="chip">Plotly</span><span class="chip">AWS CloudWatch</span><span class="chip">IAM</span>
+    </div>
+  </div>
+
+  <div class="proj-card reveal">
+    <div class="proj-top">
+      <span class="proj-name">Containerized Online Shop Deployment</span>
+      <span class="proj-tag mono">Personal Project</span>
+    </div>
+    <ul>
+      <li>Containerized and deployed a shop app using Nginx and Docker Compose.</li>
+      <li>Switched to distroless base images, shrinking image size and attack surface.</li>
+      <li>Set up an automated CI/CD pipeline to standardize build-and-deploy.</li>
+    </ul>
+    <div class="chip-row">
+      <span class="chip">Docker</span><span class="chip">Distroless</span><span class="chip">Nginx</span><span class="chip">CI/CD</span>
+    </div>
+  </div>
+
+  <div class="proj-card reveal">
+    <div class="proj-top">
+      <span class="proj-name">Academic Projects</span>
+      <span class="proj-tag mono">BCA Coursework</span>
+    </div>
+    <ul>
+      <li>Gym management app built with Maven and a working relational database.</li>
+      <li>Notepad+ app integrated with ChatGPT and Blackbox APIs.</li>
+    </ul>
+  </div>
+
+  <div class="stats reveal" id="statsRow">
+    <div class="stat"><div class="num" data-target="4">0</div><div class="label">projects shipped</div></div>
+    <div class="stat"><div class="num" data-target="24">0</div><div class="label">tools & technologies</div></div>
+    <div class="stat"><div class="num" data-target="3">0</div><div class="label">deployment strategies practiced</div></div>
+    <div class="stat"><div class="num" data-target="100">0</div><div class="label">% self-taught</div></div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="sec-tag mono">03 — cat stack.yaml</div>
+  <h2 class="sec-title reveal">The toolchain, declared.</h2>
+  <p class="sec-lede reveal">Built through hands-on projects, not just reading docs.</p>
+
+  <div class="yaml-block mono reveal">
+<span class="c">1</span> <span class="k">stack</span>:<br>
+<span class="c">2</span>&nbsp;&nbsp;<span class="k">delivery</span>:      [<span class="v">jenkins, github-actions, docker-compose</span>]<br>
+<span class="c">3</span>&nbsp;&nbsp;<span class="k">cloud</span>:         [<span class="v">aws-ec2, s3, vpc, iam, cloudwatch</span>]<br>
+<span class="c">4</span>&nbsp;&nbsp;<span class="k">containers</span>:    [<span class="v">docker, docker-compose, kubernetes-learning</span>]<br>
+<span class="c">5</span>&nbsp;&nbsp;<span class="k">scm</span>:           [<span class="v">git, github</span>]<br>
+<span class="c">6</span>&nbsp;&nbsp;<span class="k">web-stack</span>:     [<span class="v">nginx, flask, postgresql</span>]<br>
+<span class="c">7</span>&nbsp;&nbsp;<span class="k">monitoring</span>:    [<span class="v">prometheus, grafana, cloudwatch</span>]<br>
+<span class="c">8</span>&nbsp;&nbsp;<span class="k">scripting</span>:     [<span class="v">python, bash</span>]<br>
+<span class="c">9</span>&nbsp;&nbsp;<span class="k">os</span>:            [<span class="v">linux-ubuntu, wsl</span>]<br>
+<span class="c">10</span><br>
+<span class="c">11</span> <span class="k">mode</span>: build_break_fix&nbsp;&nbsp;<span class="c"># build it → break it → understand it → automate it</span>
+  </div>
+
+  <div class="stack-grid">
+    <div class="stack-card reveal">
+      <div class="tag">ship</div>
+      <div class="title">CI/CD & Automation</div>
+      <div class="desc">Jenkins, Jenkinsfile pipeline scripting, GitHub Actions (familiar)</div>
+    </div>
+    <div class="stack-card reveal">
+      <div class="tag">run</div>
+      <div class="title">Cloud & Infrastructure</div>
+      <div class="desc">AWS EC2, S3, VPC, IAM, CloudWatch, ELB, Auto Scaling Groups</div>
+    </div>
+    <div class="stack-card reveal">
+      <div class="tag">observe</div>
+      <div class="title">Monitoring & Observability</div>
+      <div class="desc">Prometheus, Grafana, AWS CloudWatch</div>
+    </div>
+  </div>
+</section>
+
+<section id="proof">
+  <div class="sec-tag mono">04 — ls -la certifications/</div>
+  <h2 class="sec-title reveal">Proof, not promises.</h2>
+  <p class="sec-lede reveal">Still early — here's exactly where things stand, no inflation.</p>
+
+  <div class="cred-row reveal">
+    <div class="cred">
+      <div>
+        <div class="cred-name">DevOps and Cloud Computing Certification</div>
+        <div class="cred-org">Physics Wallah</div>
+      </div>
+      <div class="proj-tag mono">completed</div>
+    </div>
+  </div>
+
+  <p class="sec-lede reveal" style="margin-top:36px;margin-bottom:6px;">Currently learning</p>
+  <div class="learning-row reveal">
+    <span class="learning-chip">Kubernetes</span>
+    <span class="learning-chip">Terraform</span>
+    <span class="learning-chip">Infrastructure as Code</span>
+    <span class="learning-chip">Advanced AWS</span>
+  </div>
+</section>
+
+<section id="education">
+  <div class="sec-tag mono">05 — cat education.txt</div>
+  <h2 class="sec-title reveal">Education</h2>
+  <div class="edu-card reveal">
+    <div class="deg">Bachelor of Computer Applications (BCA)</div>
+    <div class="school">Abeda Inamdar Senior College, Pune, Maharashtra · 2021 – 2024</div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="sec-tag mono">06 — ping mohsin</div>
+  <div class="contact-box reveal">
+    <h2>Ready to give a self-taught engineer a shot?</h2>
+    <p>Open to entry-level DevOps and Cloud Engineer roles. Happy to walk through any project here line by line — I built every part of it myself.</p>
+    <div class="hero-ctas" style="justify-content:center;">
+      <a class="btn btn-primary" href="mailto:mohsin.mohsinmir176@gmail.com">Email me</a>
+      <a class="btn btn-ghost" href="https://linkedin.com/in/mohsinmir-cloud" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://github.com/mohsinmir-101177" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="copy-line mono" id="copyEmail">$ echo mohsin.mohsinmir176@gmail.com | clip <span id="copyState">→ click to copy</span></div>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 Mohsin Javid Mir · Pune, IN · status: open to opportunities</div>
+  <div class="foot-links">
+    <a href="https://github.com/mohsinmir-101177" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://linkedin.com/in/mohsinmir-cloud" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="mailto:mohsin.mohsinmir176@gmail.com">Email</a>
+    <a href="#hero">Back to top ↑</a>
+  </div>
+</footer>
+
+<script>
+  // skill marquee
+  const skills = ["AWS EC2","S3","VPC","IAM","CloudWatch","Docker","Docker Compose","Kubernetes","Jenkins","Jenkinsfile","GitHub Actions","Git","GitHub","Python","Bash","Flask","Nginx","PostgreSQL","Prometheus","Grafana","Linux","WSL"];
+  const track = document.getElementById('marqueeTrack');
+  const doubled = skills.concat(skills);
+  track.innerHTML = doubled.map((s,i) => `<span class="${i % 5 === 0 ? 'hl' : ''}">${s}</span>`).join('·');
+
+  // reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.15});
+  revealEls.forEach(el => io.observe(el));
+
+  // stat counters
+  const statNums = document.querySelectorAll('.stat .num');
+  let counted = false;
+  const statsIo = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting && !counted){
+        counted = true;
+        statNums.forEach(el => {
+          const target = parseInt(el.dataset.target, 10);
+          let cur = 0;
+          const step = Math.max(1, Math.round(target / 40));
+          const t = setInterval(() => {
+            cur += step;
+            if(cur >= target){ cur = target; clearInterval(t); }
+            el.textContent = cur;
+          }, 25);
+        });
+      }
+    });
+  }, {threshold:0.4});
+  const statsRow = document.getElementById('statsRow');
+  if(statsRow) statsIo.observe(statsRow);
+
+  // copy email
+  const copyEl = document.getElementById('copyEmail');
+  const copyState = document.getElementById('copyState');
+  copyEl.addEventListener('click', () => {
+    navigator.clipboard.writeText('mohsin.mohsinmir176@gmail.com').then(() => {
+      copyState.textContent = '✓ copied to clipboard';
+      setTimeout(() => { copyState.textContent = '→ click to copy'; }, 2000);
+    });
+  });
+</script>
 </body>
 </html>
